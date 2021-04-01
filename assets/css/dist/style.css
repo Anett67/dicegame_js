@@ -21,6 +21,14 @@
   line-height: 120px;
 }
 
+.round-block span {
+  text-transform: uppercase;
+}
+.round-block .round-score {
+  font-size: 2rem;
+  color: white;
+}
+
 body {
   font-family: "Lato";
   font-weight: 300;
@@ -59,6 +67,12 @@ main.right-active {
   -webkit-box-shadow: -1px 6px 29px -10px rgba(146, 141, 141, 0.75);
   -moz-box-shadow: -1px 6px 29px -10px rgba(146, 141, 141, 0.75);
   max-width: 150px;
+}
+
+.round-block {
+  background-color: #EA4D4C;
+  display: inline-block;
+  padding: 10px 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

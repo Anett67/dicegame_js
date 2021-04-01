@@ -21,24 +21,55 @@
             </div>
         </div>
         
-        <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center mb-5">
 
-            <div class="player-block player-1 col-5 current-player text-center">
+            <div class="player-block player-1 col-4 current-player text-center">
                 <h2 class="player-name player-1">PLAYER 1</h2>
                 <div class="global-score player-1">0</div>
             </div>
 
-            <div class="dice-block col-2 text-center" data-number=1>
-                <img src="./assets/img/dice/one.png" class="w-75 current-dice" alt="Dice 1">
+            <div class="dice-block col-3 text-center" data-number=1>
+                <img src="./assets/img/dice/one.png" class="w-50 current-dice" alt="Dice 1">
             </div>
 
-            <div class="player-block player-2 col-5 text-center">
+            <div class="player-block player-2 col-4 text-center">
                 <h2 class="player-name player-2">PLAYER 2</h2>
                 <div class="global-score player-2">0</div>
             </div>
 
         </div>
 
+        <div class="row justify-content-center align-items-center mb-5">
+            <div class="col-4 text-center">
+                <div class="round-block player-1 current-player">
+                    <span>current</span>
+                    <div class="round-score player-1">0</div>
+                </div>
+            </div>
+
+
+            <div class="col-3 text-center" data-number=1>
+                
+                <div class="action-button d-flex justify-content-center align-items-center p-0 mb-4">
+                    <img src="./assets/img/exchange.png" alt="Roll icon">
+                    <span class="action-name">Roll Dice</span>
+                </div>
+
+                <div class="action-button d-flex justify-content-center align-items-center p-0">
+                    <img src="./assets/img/download.png" alt="Add new icon">
+                    <span class="action-name">Hold</span>
+                </div>
+
+            </div>
+
+            <div class="col-4 text-center">
+                <div class="round-block player-2">
+                    <span>current</span>
+                    <div class="round-score player-2">0</div>
+                </div>
+            </div>
+
+        </div>
 
     </main>
 
