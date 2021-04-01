@@ -1,0 +1,20 @@
+{
+  "name": "dicegame_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./assets/css/src/main.scss:./assets/css/dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anett67/dicegame_js.git"
+  },
+  "author": "Anett DAVID",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anett67/dicegame_js/issues"
+  },
+  "homepage": "https://github.com/Anett67/dicegame_js#readme"
+}
