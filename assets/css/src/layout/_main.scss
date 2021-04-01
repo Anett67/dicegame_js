@@ -1,3 +1,11 @@
 main{
     background-color: white;
+
+    &.left-active{
+        background: linear-gradient(to right, #f7f7f7 50%, #ffff 50%);
+    }
+
+    &.right-active{
+        background: linear-gradient(to right, #ffff 50%, #f7f7f7 50%);
+    }
 }
