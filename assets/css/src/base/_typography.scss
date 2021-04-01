@@ -1,6 +1,10 @@
 .player-name{
-    font-size: 3rem;
+    font-size: 1.4rem;
     font-weight: 300;
+
+    @include respond(tab-land){
+        font-size: 3rem;
+    }
 }
 
 .current-player .player-name{
@@ -10,15 +14,24 @@
         content: "\2022";
         color: $red;
         border-radius: 50%;
-        margin-left: .8rem;
+        margin-left: .3rem;
+
+        @include respond(tab-port){
+            margin-left: .8rem;
+        }
     }
 }
 
 .global-score{
     color: $red;
-    font-size: 8rem;
+    font-size: 4rem;
     font-weight: 200;
-    line-height: 120px;
+    line-height: 70px;
+
+    @include respond(tab-land){
+        font-size: 8rem;
+        line-height: 120px;
+    }
 }
 
 .round-block{

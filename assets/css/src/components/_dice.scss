@@ -4,4 +4,12 @@
     -moz-box-shadow: -1px 6px 29px -10px rgba(146,141,141,0.75);
 
     max-width: 150px;
+
+    width: 30%;
+    margin-top: 20px;
+
+    @include respond(tab-port){
+        width: 75%;
+        margin-top: 0;
+    }
 }

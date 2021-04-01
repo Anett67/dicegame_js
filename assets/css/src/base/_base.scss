@@ -3,5 +3,10 @@ body{
     font-weight: 300;
     min-height: 100vh;
     background: linear-gradient(#b19e8a, #7b482b);
-    padding: 20px;
+    padding: 10px;
+    
+    @include respond(tab-land){
+        padding: 20px;
+    }
+    
 }

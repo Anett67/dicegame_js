@@ -1,7 +1,12 @@
 @charset "UTF-8";
 .player-name {
-  font-size: 3rem;
+  font-size: 1.4rem;
   font-weight: 300;
+}
+@media (min-width: 900px) {
+  .player-name {
+    font-size: 3rem;
+  }
 }
 
 .current-player .player-name {
@@ -11,14 +16,25 @@
   content: "•";
   color: #EA4D4C;
   border-radius: 50%;
-  margin-left: 0.8rem;
+  margin-left: 0.3rem;
+}
+@media (min-width: 600px) {
+  .current-player .player-name:after {
+    margin-left: 0.8rem;
+  }
 }
 
 .global-score {
   color: #EA4D4C;
-  font-size: 8rem;
+  font-size: 4rem;
   font-weight: 200;
-  line-height: 120px;
+  line-height: 70px;
+}
+@media (min-width: 900px) {
+  .global-score {
+    font-size: 8rem;
+    line-height: 120px;
+  }
 }
 
 .round-block span {
@@ -34,7 +50,12 @@ body {
   font-weight: 300;
   min-height: 100vh;
   background: linear-gradient(#b19e8a, #7b482b);
-  padding: 20px;
+  padding: 10px;
+}
+@media (min-width: 900px) {
+  body {
+    padding: 20px;
+  }
 }
 
 main {
@@ -56,11 +77,17 @@ main .global-score-block {
 }
 
 .action-button {
-  margin: 3% 0;
+  margin: 6% 0;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   width: auto;
   cursor: pointer;
+}
+@media (min-width: 600px) {
+  .action-button {
+    font-size: 1.5rem;
+    margin: 3% 0;
+  }
 }
 .action-button img {
   width: 30px;
@@ -72,6 +99,14 @@ main .global-score-block {
   -webkit-box-shadow: -1px 6px 29px -10px rgba(146, 141, 141, 0.75);
   -moz-box-shadow: -1px 6px 29px -10px rgba(146, 141, 141, 0.75);
   max-width: 150px;
+  width: 30%;
+  margin-top: 20px;
+}
+@media (min-width: 600px) {
+  .dice-block img {
+    width: 75%;
+    margin-top: 0;
+  }
 }
 
 .round-block {
