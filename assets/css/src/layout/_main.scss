@@ -1,5 +1,8 @@
 main{
     background-color: white;
+    box-shadow: -1px 6px 29px -10px rgba(146,141,141,0.75);
+    -webkit-box-shadow: -1px 6px 29px -10px rgba(146,141,141,0.75);
+    -moz-box-shadow: -1px 6px 29px -10px rgba(146,141,141,0.75);
 
     &.left-active{
         background: linear-gradient(to right, #f7f7f7 50%, #ffff 50%);
