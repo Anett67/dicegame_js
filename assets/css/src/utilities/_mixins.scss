@@ -1,6 +1,11 @@
 @mixin respond($breakpoint) {
+    @if $breakpoint == extra-small {
+        @media(max-width: 300px){
+            @content
+        };
+    }
     @if $breakpoint == tab-port {
-        @media(min-width: 600px){
+        @media(min-width: 576px){
             @content
         };
     }

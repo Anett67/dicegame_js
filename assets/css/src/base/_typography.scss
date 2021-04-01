@@ -2,6 +2,14 @@
     font-size: 1.4rem;
     font-weight: 300;
 
+    @include respond(extra-small){
+        font-size: 1.2rem;
+    }
+
+    @include respond(tab-port){
+        font-size: 2rem;
+    }
+
     @include respond(tab-land){
         font-size: 3rem;
     }
@@ -14,9 +22,9 @@
         content: "\2022";
         color: $red;
         border-radius: 50%;
-        margin-left: .3rem;
+        margin-left: .2rem;
 
-        @include respond(tab-port){
+        @include respond(tab-land){
             margin-left: .8rem;
         }
     }
@@ -27,6 +35,11 @@
     font-size: 4rem;
     font-weight: 200;
     line-height: 70px;
+
+    @include respond(tab-port){
+        font-size: 6rem;
+        line-height: 100px;
+    }
 
     @include respond(tab-land){
         font-size: 8rem;

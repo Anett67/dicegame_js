@@ -1,5 +1,13 @@
 .round-block{
     background-color: $red;
     display: inline-block;
-    padding: 10px 30px;
+    padding: 10px 20px;
+
+    @include respond(extra-small){
+        padding: 10px;
+    }
+
+    @include respond(tab-port){
+        padding: 10px 30px;
+    }
 }

@@ -1,7 +1,11 @@
 main{
     background-color: white;
 
-    min-height: calc( 100vh - 40px );
+    min-height: calc( 100vh - 20px );
+
+    @include respond(tab-port){
+        min-height: calc( 100vh - 40px );
+    }
 
     box-shadow: -1px 6px 29px -10px rgba(146,141,141,0.75);
     -webkit-box-shadow: -1px 6px 29px -10px rgba(146,141,141,0.75);
@@ -18,7 +22,5 @@ main{
     .global-score-block{
         margin-top: 5%;
         margin-bottom: 10%;
-
-        
     }
 }
