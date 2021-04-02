@@ -49,7 +49,7 @@ const holdScore = () => {
     changePlayer();
 }
 
-const changePlayer = () => {
+const changeGameboardBackground = () => {
     // Change gameboard background color
     if(gameBoardContainer.classList.contains('left-active')){
         gameBoardContainer.classList.remove('left-active');
@@ -58,6 +58,11 @@ const changePlayer = () => {
         gameBoardContainer.classList.remove('right-active');
         gameBoardContainer.classList.add('left-active');
     }
+}
+
+const changePlayer = () => {
+
+    changeGameboardBackground();
 
     for(block of globalPlayerBlocks){
         if(block.classList.contains('current-player')){
