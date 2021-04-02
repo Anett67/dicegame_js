@@ -1,14 +1,16 @@
 // Select elements
 const diceImage                     = document.querySelector('.dice-image');
 const gameBoardContainer            = document.querySelector('.gameboard');
-const currentGlobalScoreContainer   = document.querySelector('.player-block.current-player > .global-score');
-const currentRoundScoreContainer    = document.querySelector('.round-block.current-player > .round-score');
 const newGameBtn                    = document.getElementById('new-game');
 const rollDiceBtn                   = document.getElementById('roll-dice');
 const holdBtn                       = document.getElementById('hold');
+const globalPlayerBlocks            = document.querySelectorAll('.player-block');
+const roundBlocks                   = document.querySelectorAll('.round-block');
 
-let currentGlobalScore = parseInt(currentGlobalScoreContainer.textContent);
-let currentRoundScore = parseInt(currentRoundScoreContainer.textContent); 
+let currentGlobalScoreContainer;
+let currentRoundScoreContainer;
+let currentGlobalScore;
+let currentRoundScore; 
 
 const diceImagesSources = [
     './assets/img/dice/one.png',
@@ -20,10 +22,19 @@ const diceImagesSources = [
 ]
 
 // Functions
+
+const initializeScoreVariables = () => {
+    currentGlobalScoreContainer     = document.querySelector('.player-block.current-player > .global-score');
+    currentRoundScoreContainer      = document.querySelector('.round-block.current-player > .round-score'); 
+    currentGlobalScore              = parseInt(currentGlobalScoreContainer.textContent);
+    currentRoundScore               = parseInt(currentRoundScoreContainer.textContent);
+}
+
 const rollDice = () => {
     const diceNumber = Math.ceil(Math.random() * 6);
     diceImage.setAttribute('src', diceImagesSources[diceNumber-1]);
     updateCurrentScore(diceNumber);
+    if( diceNumber === 1 ) changePlayer();
 }
 
 const updateCurrentScore = score => {
@@ -35,7 +46,40 @@ const holdScore = () => {
     currentGlobalScore += currentRoundScore;
     currentGlobalScoreContainer.textContent = currentGlobalScore;
     updateCurrentScore(0);
+    changePlayer();
 }
+
+const changePlayer = () => {
+    // Change gameboard background color
+    if(gameBoardContainer.classList.contains('left-active')){
+        gameBoardContainer.classList.remove('left-active');
+        gameBoardContainer.classList.add('right-active');
+    }else if(gameBoardContainer.classList.contains('right-active')){
+        gameBoardContainer.classList.remove('right-active');
+        gameBoardContainer.classList.add('left-active');
+    }
+
+    for(block of globalPlayerBlocks){
+        if(block.classList.contains('current-player')){
+            block.classList.remove('current-player');
+        }else{
+            block.classList.add('current-player');
+        }
+    }
+
+    for(block of roundBlocks){
+        if(block.classList.contains('current-player')){
+            block.classList.remove('current-player');
+        }else{
+            block.classList.add('current-player');
+        }
+    }
+    
+    initializeScoreVariables();
+
+}
+
+initializeScoreVariables();
 
 // EventListeners
 rollDiceBtn.addEventListener('click', rollDice);
