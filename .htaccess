@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://dicegame.anettdavid.fr/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.(([a-z0-9_]+\.)?anettdavid\.fr)$ [NC]
+RewriteRule .? http://%1%{REQUEST_URI} [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-f
