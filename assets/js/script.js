@@ -27,11 +27,18 @@ const rollDice = () => {
 }
 
 const updateCurrentScore = score => {
-    currentRoundScore += score;
+    currentRoundScore = score > 1 ? currentRoundScore += score : 0;
     currentRoundScoreContainer.textContent = currentRoundScore;
+}
+
+const holdScore = () => {
+    currentGlobalScore += currentRoundScore;
+    currentGlobalScoreContainer.textContent = currentGlobalScore;
+    updateCurrentScore(0);
 }
 
 // EventListeners
 rollDiceBtn.addEventListener('click', rollDice);
+holdBtn.addEventListener('click', holdScore);
 
 
