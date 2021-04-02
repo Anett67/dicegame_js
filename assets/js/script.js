@@ -11,6 +11,7 @@ let currentGlobalScoreContainer;
 let currentRoundScoreContainer;
 let currentGlobalScore;
 let currentRoundScore; 
+let currentPlayerName;
 
 const diceImagesSources = [
     './assets/img/dice/one.png',
@@ -28,6 +29,7 @@ const initializeScoreVariables = () => {
     currentRoundScoreContainer      = document.querySelector('.round-block.current-player > .round-score'); 
     currentGlobalScore              = parseInt(currentGlobalScoreContainer.textContent);
     currentRoundScore               = parseInt(currentRoundScoreContainer.textContent);
+    currentPlayerName               = document.querySelector('.player-block.current-player > .player-name').textContent;
 }
 
 const rollDice = () => {
@@ -46,6 +48,12 @@ const holdScore = () => {
     currentGlobalScore += currentRoundScore;
     currentGlobalScoreContainer.textContent = currentGlobalScore;
     updateCurrentScore(0);
+    
+    if(currentGlobalScore >= 100){
+        alert(`Game over. ${currentPlayerName} won. Congratulations!`);
+        return;
+    }
+        
     changePlayer();
 }
 
