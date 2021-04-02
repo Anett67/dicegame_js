@@ -118,6 +118,8 @@ const startNewGame = () => {
         block.children[1].textContent = 0;
     }
 
+    diceImage.setAttribute('src', diceImagesSources[0]);
+
     initializeScoreVariables();
 
 }
