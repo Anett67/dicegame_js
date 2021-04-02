@@ -16,3 +16,29 @@ const diceImagesSources = [
     './assets/img/dice/six.png',
 ]
 
+// const gamePlay = {
+//     currentDice: 1,
+//     player1: {
+//         name : 'Player 1',
+//         globalScore: 0,
+//         roundScore: 0
+//     },
+//     player2: {
+//         name : 'Player 2',
+//         globalScore: 0,
+//         roundScore: 0
+//     },
+//     currentPlayer: 1
+// }
+
+// const initializeGameData = (gamePlay) => {
+//     diceImage.setAttribute('src', diceImagesSources[gamePlay.currentDice - 1]);
+
+// }
+
+const rollDice = () => {
+    const diceNumber = Math.ceil(Math.random() * 6);
+    diceImage.setAttribute('src', diceImagesSources[diceNumber-1]);
+}
+
+
