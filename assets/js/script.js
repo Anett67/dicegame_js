@@ -51,6 +51,7 @@ const holdScore = () => {
     
     if(currentGlobalScore >= 100){
         alert(`Game over. ${currentPlayerName} won. Congratulations!`);
+        startNewGame();
         return;
     }
         
@@ -92,10 +93,40 @@ const changePlayer = () => {
 
 }
 
+const startNewGame = () => {
+
+    if(gameBoardContainer.classList.contains('right-active')){
+        gameBoardContainer.classList.remove('right-active');
+        gameBoardContainer.classList.add('left-active');
+    }
+
+    if(!globalPlayerBlocks[0].classList.contains('current-player')){
+        globalPlayerBlocks[0].classList.add('current-player');
+        globalPlayerBlocks[1].classList.remove('current-player');
+    }
+
+    if(!roundBlocks[0].classList.contains('current-player')){
+        roundBlocks[0].classList.add('current-player');
+        roundBlocks[1].classList.remove('current-player');
+    }
+
+    for(block of globalPlayerBlocks){
+        block.children[1].textContent = 0;
+    }
+
+    for(block of roundBlocks){
+        block.children[1].textContent = 0;
+    }
+
+    initializeScoreVariables();
+
+}
+
 initializeScoreVariables();
 
 // EventListeners
 rollDiceBtn.addEventListener('click', rollDice);
 holdBtn.addEventListener('click', holdScore);
+newGameBtn.addEventListener('click', startNewGame);
 
 
