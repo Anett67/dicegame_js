@@ -1,11 +1,14 @@
 // Select elements
-const diceImage                 = document.querySelector('.dice-image');
-const gameBoardContainer        = document.querySelector('.gameboard');
-const currentPlayerGlobalScore  = document.querySelector('.player-block.current-player > .global-score');
-const currentPlayerRoundScore   = document.querySelector('.round-block.current-player > .round-score');;
-const newGameBtn                = document.getElementById('new-game');
-const rollDiceBtn               = document.getElementById('roll-dice');
-const holdBtn                   = document.getElementById('hold');
+const diceImage                     = document.querySelector('.dice-image');
+const gameBoardContainer            = document.querySelector('.gameboard');
+const currentGlobalScoreContainer   = document.querySelector('.player-block.current-player > .global-score');
+const currentRoundScoreContainer    = document.querySelector('.round-block.current-player > .round-score');
+const newGameBtn                    = document.getElementById('new-game');
+const rollDiceBtn                   = document.getElementById('roll-dice');
+const holdBtn                       = document.getElementById('hold');
+
+let currentGlobalScore = parseInt(currentGlobalScoreContainer.textContent);
+let currentRoundScore = parseInt(currentRoundScoreContainer.textContent); 
 
 const diceImagesSources = [
     './assets/img/dice/one.png',
@@ -16,29 +19,19 @@ const diceImagesSources = [
     './assets/img/dice/six.png',
 ]
 
-// const gamePlay = {
-//     currentDice: 1,
-//     player1: {
-//         name : 'Player 1',
-//         globalScore: 0,
-//         roundScore: 0
-//     },
-//     player2: {
-//         name : 'Player 2',
-//         globalScore: 0,
-//         roundScore: 0
-//     },
-//     currentPlayer: 1
-// }
-
-// const initializeGameData = (gamePlay) => {
-//     diceImage.setAttribute('src', diceImagesSources[gamePlay.currentDice - 1]);
-
-// }
-
+// Functions
 const rollDice = () => {
     const diceNumber = Math.ceil(Math.random() * 6);
     diceImage.setAttribute('src', diceImagesSources[diceNumber-1]);
+    updateCurrentScore(diceNumber);
 }
+
+const updateCurrentScore = score => {
+    currentRoundScore += score;
+    currentRoundScoreContainer.textContent = currentRoundScore;
+}
+
+// EventListeners
+rollDiceBtn.addEventListener('click', rollDice);
 
 
