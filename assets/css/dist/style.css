@@ -138,6 +138,10 @@ main .global-score-block {
   }
 }
 
+.spinner {
+  margin-top: 20px;
+}
+
 .round-block {
   background-color: #EA4D4C;
   display: inline-block;
