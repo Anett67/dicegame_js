@@ -6,6 +6,7 @@ const rollDiceBtn                   = document.getElementById('roll-dice');
 const holdBtn                       = document.getElementById('hold');
 const globalPlayerBlocks            = document.querySelectorAll('.player-block');
 const roundBlocks                   = document.querySelectorAll('.round-block');
+const spinner                       = document.querySelector('.spinner')
 
 let currentGlobalScoreContainer;
 let currentRoundScoreContainer;
@@ -33,10 +34,16 @@ const initializeScoreVariables = () => {
 }
 
 const rollDice = () => {
+    diceImage.classList.add('d-none')
+    spinner.classList.remove('d-none')
     const diceNumber = Math.ceil(Math.random() * 6);
     diceImage.setAttribute('src', diceImagesSources[diceNumber-1]);
-    updateCurrentScore(diceNumber);
-    if( diceNumber === 1 ) changePlayer();
+    setTimeout(function() {
+        updateCurrentScore(diceNumber);
+        if( diceNumber === 1 ) changePlayer();
+        spinner.classList.add('d-none')   
+        diceImage.classList.remove('d-none')         
+    }, 1000)
 }
 
 const updateCurrentScore = score => {
