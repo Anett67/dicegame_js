@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Anett67/dicegame_js/issues"
   },
-  "homepage": "https://github.com/Anett67/dicegame_js#readme"
+  "homepage": "https://github.com/Anett67/dicegame_js#readme",
+  "devDependencies": {
+    "sass": "^1.98.0"
+  }
 }

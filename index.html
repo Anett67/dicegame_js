@@ -7,8 +7,7 @@
     <meta name="description" content="Juste a little dice game. Have fun!">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/dist/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">    <link rel="stylesheet" href="./assets/css/dist/style.css">
     <title>Dice Game</title>
     <link rel="shortcut icon" href="/favicon.ico?v2" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?v2" type="image/x-icon">
@@ -51,10 +50,18 @@
                     <span class="action-name">Roll Dice</span>
                 </div>
 
-                <div id="hold" class="action-button d-flex justify-content-center align-items-center p-0">
+                <div id="hold" class="action-button d-flex justify-content-center align-items-center p-0 mb-4">
                     <img src="./assets/img/download.png" alt="Add new icon">
                     <span class="action-name">Hold</span>
                 </div>
+
+                <div id="hold" class="action-button d-flex justify-content-center align-items-center p-0">
+                            <!-- Button trigger modal -->
+                <div data-bs-toggle="modal" data-bs-target="#myModal" id="myInput">
+                    <img src="./assets/img/help.png" alt="Rules" class="mb-1">
+                    Dice Game Rules
+                </div>
+            </div>
 
             </div>
 
@@ -74,9 +81,60 @@
 
         </div>
 
+    <div class="row justify-content-center">
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Dice Game Rules</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h2>Goal of the game</h2>
+
+            <p>The goal is to be the first player to reach 100 points.</p>
+
+            <h2>How to play</h2>
+
+                <ul>
+                    <li>The game is played by two players.</li>
+                    <li>On your turn, click Roll Dice to roll the die.</li>
+                    <li>The number rolled is added to your current turn score.</li>
+                </ul>
+            
+            <p>You then have two choices:</p>
+
+            <ul>
+                <li>Roll again to try to get more points.</li>
+                <li>Hold to add your current turn score to your total score and pass the turn to the other player.</li>
+            </ul>
+            
+            <p><strong>Important rule</strong></p>
+
+            <p>If you roll a 1:</p>
+
+            <ul>
+                <li>You lose all the points accumulated during that turn.</li>
+                <li>Your turn immediately ends.</li>
+                <li> The other player starts their turn.</li>
+            </ul>
+            
+            <p><strong> Winning the game</strong></p>
+
+            <p>The first player to reach 100 total points wins the game.</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
