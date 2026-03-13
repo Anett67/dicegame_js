@@ -7,12 +7,18 @@ const holdBtn                       = document.getElementById('hold');
 const globalPlayerBlocks            = document.querySelectorAll('.player-block');
 const roundBlocks                   = document.querySelectorAll('.round-block');
 const spinner                       = document.querySelector('.spinner')
+const firstGlobalScoreContainer     = document.querySelector('.player-block.player-1 > .global-score');
+const firstCurrentScoreContainer    = document.querySelector('.round-block.player-1 > .round-score');
+const secondGlobalScoreContainer    = document.querySelector('.player-block.player-2 > .global-score');
+const secondCurrentScoreContainer   = document.querySelector('.round-block.player-2 > .round-score');
+
 
 let currentGlobalScoreContainer;
 let currentRoundScoreContainer;
 let currentGlobalScore;
 let currentRoundScore; 
 let currentPlayerName;
+let currentPlayer;
 
 const diceImagesSources = [
     './assets/img/dice/one.png',
@@ -28,9 +34,23 @@ const diceImagesSources = [
 const initializeScoreVariables = () => {
     currentGlobalScoreContainer     = document.querySelector('.player-block.current-player > .global-score');
     currentRoundScoreContainer      = document.querySelector('.round-block.current-player > .round-score'); 
+    firstGlobalScoreContainer.textContent = JSON.parse(localStorage.getItem('score'))[0].global
+    firstCurrentScoreContainer.textContent = JSON.parse(localStorage.getItem('score'))[0].current
+    secondGlobalScoreContainer.textContent = JSON.parse(localStorage.getItem('score'))[1].global
+    secondCurrentScoreContainer.textContent = JSON.parse(localStorage.getItem('score'))[1].current
     currentGlobalScore              = parseInt(currentGlobalScoreContainer.textContent);
     currentRoundScore               = parseInt(currentRoundScoreContainer.textContent);
     currentPlayerName               = document.querySelector('.player-block.current-player > .player-name').textContent;
+    currentPlayer                   = currentPlayerName === 'PLAYER 1' ? 0 : 1;
+}
+
+const setLocalStorage = (newGame = false) => {
+    if(!localStorage.getItem('score') || newGame) {
+        localStorage.setItem('score', JSON.stringify([
+            { current: 0, global: 0 },
+            { current: 0, global: 0 },
+        ]))
+    }
 }
 
 const rollDice = () => {
@@ -40,6 +60,7 @@ const rollDice = () => {
     diceImage.setAttribute('src', diceImagesSources[diceNumber-1]);
     setTimeout(function() {
         updateCurrentScore(diceNumber);
+        updateLocalStorage()
         if( diceNumber === 1 ) changePlayer();
         spinner.classList.add('d-none')   
         diceImage.classList.remove('d-none')         
@@ -55,6 +76,7 @@ const holdScore = () => {
     currentGlobalScore += currentRoundScore;
     currentGlobalScoreContainer.textContent = currentGlobalScore;
     updateCurrentScore(0);
+    updateLocalStorage()
     
     if(currentGlobalScore >= 100){
         alert(`Game over. ${currentPlayerName} won. Congratulations!`);
@@ -63,6 +85,13 @@ const holdScore = () => {
     }
         
     changePlayer();
+}
+
+const updateLocalStorage = () => {
+    let storedScore = JSON.parse(localStorage.getItem('score'))
+    storedScore[currentPlayer].current = currentRoundScore
+    storedScore[currentPlayer].global = currentGlobalScore
+    localStorage.setItem('score', JSON.stringify(storedScore))
 }
 
 const changeGameboardBackground = () => {
@@ -126,11 +155,12 @@ const startNewGame = () => {
     }
 
     diceImage.setAttribute('src', diceImagesSources[0]);
-
+    
+    setLocalStorage(true);
     initializeScoreVariables();
-
 }
 
+setLocalStorage()
 initializeScoreVariables();
 
 // EventListeners
